@@ -84,7 +84,7 @@
         // that to be honored here.
         "port": "$PORT",
         // This is the public URL to your production add-on.
-        "localBaseUrl": "https://43df24c2.ngrok.io",
+        "localBaseUrl": "https://firstaddons.herokuapp.com/",
         "store": {
             // Let's use Redis as our default data store in prod
             "adapter": "redis",
