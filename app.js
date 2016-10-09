@@ -45,7 +45,7 @@ var hipchat = require('atlassian-connect-express-hipchat')(addon, app);
 // The following settings applies to all environments
 //app.set('port', port);
 //heroku need dynamic port; 5000 is for local development, 3000 is for ngrok  Alaso add app.listen as following
-app.set('port', (process.env.PORT || 5000 || 3000));
+app.set('port', (process.env.PORT || port || 5000 ));
 // Configure the Handlebars view engine
 app.engine('hbs', hbs.express3({partialsDir: viewsDir}));
 app.set('view engine', 'hbs');
