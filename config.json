@@ -71,7 +71,7 @@
         // },
         "store": {
            "adapter": "redis",
-            "url": "redis://redistogo:4747106e0576ff6b9fb2b07253df69d0@sculpin.redistogo.com:10351"
+            "url": "redis://localhost:6379"
         }
     },
     // This is the production add-on configuration, which is enabled by setting
