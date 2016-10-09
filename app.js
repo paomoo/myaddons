@@ -44,7 +44,7 @@ var hipchat = require('atlassian-connect-express-hipchat')(addon, app);
 
 // The following settings applies to all environments
 //app.set('port', port);
-//heroku need dynamic port; 5000 is for local development, 3000 is for ngrok 
+//heroku need dynamic port; 5000 is for local development, 3000 is for ngrok  Alaso add app.listen as following
 app.set('port', (process.env.PORT || 5000 || 3000));
 // Configure the Handlebars view engine
 app.engine('hbs', hbs.express3({partialsDir: viewsDir}));
@@ -68,11 +68,16 @@ hbs.registerHelper('furl', function(url){ return app.locals.furl(url); });
 // Mount the static resource dir
 app.use(express.static(staticDir));
 
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
+
 // Show nicer errors when in dev mode
 if (devEnv) app.use(errorHandler());
 
 // Wire up your routes using the express and `atlassian-connect-express` objects
 routes(app, addon);
+
 
 // Boot the damn thing
 http.createServer(app).listen(port, function(){
